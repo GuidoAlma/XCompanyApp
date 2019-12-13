@@ -10,5 +10,6 @@ namespace XCompanyApp.Repositories
         IEnumerable<T> GetAll();
         T GetById(int id);
         T Remove(int id);
+        T Add(T entity);
     }
 }

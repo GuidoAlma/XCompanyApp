@@ -2,27 +2,36 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using XCompanyApp.Models;
 
 namespace XCompanyApp.Repositories
 {
-    public class PermisosRepository : IRepository<PermisosRepository>
+    public class PermisosRepository : IRepository<Permisos>
     {
         AppContext context;
         public PermisosRepository(AppContext _context)
         {
             context = _context;
         }
-        public IEnumerable<PermisosRepository> GetAll()
+
+        public Permisos Add(Permisos entity)
+        {
+            context.Permisos.Add(entity);
+            context.SaveChanges();
+            return entity;
+        }
+
+        public IEnumerable<Permisos> GetAll()
+        {
+            return context.Permisos;
+        }
+
+        public Permisos GetById(int id)
         {
             throw new NotImplementedException();
         }
 
-        public PermisosRepository GetById(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public PermisosRepository Remove(int id)
+        public Permisos Remove(int id)
         {
             throw new NotImplementedException();
         }

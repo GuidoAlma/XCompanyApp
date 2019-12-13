@@ -15,6 +15,11 @@ namespace XCompanyApp.Repositories
             context = _context;
         }
 
+        public TipoPermiso Add(TipoPermiso entity)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<TipoPermiso> GetAll()
         {
             throw new NotImplementedException();

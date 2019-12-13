@@ -4,6 +4,7 @@
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using XCompanyApp.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<XCompanyApp.Repositories.AppContext>
     {
@@ -14,10 +15,19 @@
 
         protected override void Seed(XCompanyApp.Repositories.AppContext context)
         {
-            //  This method will be called after migrating to the latest version.
-
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method
-            //  to avoid creating duplicate seed data.
+            context.TipoPermiso.AddOrUpdate(
+                new TipoPermiso()
+                {
+                    Descripcion = "Administrador"
+                },
+                new TipoPermiso()
+                {
+                    Descripcion = "Usuario"
+                },
+                new TipoPermiso()
+                {
+                    Descripcion = "Solo Lectura"
+                });
         }
     }
 }
