@@ -5,7 +5,10 @@
     <h1>Menu Principal</h1>
 </div>
 <div class="row">
-    <div class="col-md-4">                
-        @Html.ActionLink("Ver Permisos", "Index", "Permisos")
+    <div class="col-md-4">
+        <ul>
+            <li>@Html.ActionLink("Ver Permisos", "Index", "Permisos")</li>
+            <li>@Html.ActionLink("Ver Tipo de Permisos", "TipoPermisos", "Permisos")</li>
+        </ul>
     </div>    
 </div>
