@@ -26,6 +26,8 @@ namespace XCompanyAppTest
         {
             AssertCreate();
             AssertGet();
+            //AssertUpdate();
+            //AssertRemove();
         }
 
         private void AssertGet()

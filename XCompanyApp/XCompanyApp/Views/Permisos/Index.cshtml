@@ -1,0 +1,30 @@
+﻿@using XCompanyApp.Models
+@{
+    ViewBag.Title = "Ver Permisos";
+}
+
+<div class="row">
+    <div class="col-md-4">     
+        <table class="table table-dark">
+            <thead>
+                <tr>                    
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">TipoPermiso</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    foreach (Permisos permiso in Model)
+                    {
+                        <tr>                            
+                            <td>@permiso.NombreEmpleado</td>
+                            <td>@permiso.ApellidosEmpleado</td>                            
+                            <td>@permiso.TipoPermiso.Descripcion</td>
+                        </tr>
+                    }
+                }
+            </tbody>
+            </table>
+</div>    
+</div>

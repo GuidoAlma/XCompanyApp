@@ -6,7 +6,7 @@ using XCompanyApp.Models;
 
 namespace XCompanyApp.Repositories
 {
-    public class PermisosRepository : IRepository<Permisos>
+    public class PermisosRepository : IPermisosRepository
     {
         AppContext context;
         public PermisosRepository(AppContext _context)
