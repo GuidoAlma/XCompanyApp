@@ -25,9 +25,9 @@ namespace XCompanyApp.Models
         public DateTime FechaPermiso { get; set; }
 
         [Required]
-        [ForeignKey("TipoPermisoRef")]
-        public int TipoPermiso { get; set; }
+        [ForeignKey("TipoPermiso")]
+        public int TipoPermisoId { get; set; }
         
-        TipoPermiso TipoPermisoRef { get; set; }
+        public virtual TipoPermiso TipoPermiso { get; set; }
     }
 }

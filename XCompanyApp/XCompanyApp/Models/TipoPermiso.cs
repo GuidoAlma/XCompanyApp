@@ -9,8 +9,9 @@ namespace XCompanyApp.Models
 {
     public class TipoPermiso
     {
-        [Key]
+        [Key]        
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
         public int Id { get; set; }
 
         [Required]
