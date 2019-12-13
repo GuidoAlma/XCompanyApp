@@ -4,10 +4,10 @@
 }
 
 <div class="row">
-    <div class="col-md-4">     
+    <div class="col-md-4">
         <table class="table table-dark">
             <thead>
-                <tr>                    
+                <tr>
                     <th scope="col">Nombre</th>
                     <th scope="col">Apellido</th>
                     <th scope="col">TipoPermiso</th>
@@ -17,14 +17,15 @@
                 @{
                     foreach (Permisos permiso in Model)
                     {
-                        <tr>                            
+                        <tr>
                             <td>@permiso.NombreEmpleado</td>
-                            <td>@permiso.ApellidosEmpleado</td>                            
+                            <td>@permiso.ApellidosEmpleado</td>
                             <td>@permiso.TipoPermiso.Descripcion</td>
                         </tr>
                     }
                 }
             </tbody>
-            </table>
-</div>    
+        </table>
+    </div>
+    @Html.ActionLink("Solicitar Permiso", "Crear", "Permisos");
 </div>

@@ -1,0 +1,29 @@
+﻿@using XCompanyApp.Models
+@{
+    ViewBag.Title = "Crear Nuevo Permiso";
+}
+
+@using (Html.BeginForm("Crear", "Permisos", FormMethod.Post))
+{
+    <div class="form-group">
+        <label for="nombre">Nombre:</label>
+        <input id="nombre" name="nombre" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="apellidos">Apellidos:</label>
+        <input id="apellidos" name="apellidos" type="text" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="tipoPermiso">Tipo Permiso:</label>
+
+        <select id="tipoPermiso" name="tipoPermiso">
+            @{
+                foreach (var tipo in ViewBag.TipoPermisos)
+                {
+                    <option value="@tipo.Id" selected>@tipo.Descripcion</option>
+                }
+            }
+        </select>
+    </div>
+    <input type="submit" class="btn-primary" />
+}

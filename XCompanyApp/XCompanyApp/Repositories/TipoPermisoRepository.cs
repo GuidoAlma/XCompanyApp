@@ -7,7 +7,7 @@ using XCompanyApp.Models;
 
 namespace XCompanyApp.Repositories
 {
-    public class TipoPermisoRepository : IRepository<TipoPermiso>
+    public class TipoPermisoRepository : ITipoPermisoRepository
     {
         AppContext context;
         public TipoPermisoRepository(AppContext _context)
@@ -22,7 +22,7 @@ namespace XCompanyApp.Repositories
 
         public IEnumerable<TipoPermiso> GetAll()
         {
-            throw new NotImplementedException();
+            return context.TipoPermiso;
         }
 
         public TipoPermiso GetById(int id)
