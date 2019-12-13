@@ -183,6 +183,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Permisos\Index.cshtml" />
     <Content Include="Views\Permisos\Crear.cshtml" />
+    <Content Include="Views\Permisos\TipoPermisos.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

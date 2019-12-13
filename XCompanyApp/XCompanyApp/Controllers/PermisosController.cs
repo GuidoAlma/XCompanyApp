@@ -49,5 +49,20 @@ namespace XCompanyApp.Controllers
 
             return Json(success);
         }
+
+        public ActionResult TipoPermisos()
+        {
+            var tipoPermisos = tipoPermisoRepo.GetAll();
+            return View(tipoPermisos);
+        }
+
+        public JsonResult DeleteTipoPermiso(int id)
+        {
+            var tipoPermiso = tipoPermisoRepo.Remove(id);
+
+            var success = tipoPermiso != null;
+
+            return Json(success, JsonRequestBehavior.AllowGet);
+        }
     }
 }

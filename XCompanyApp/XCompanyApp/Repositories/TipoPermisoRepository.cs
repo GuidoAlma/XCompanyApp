@@ -32,7 +32,15 @@ namespace XCompanyApp.Repositories
 
         public TipoPermiso Remove(int id)
         {
-            throw new NotImplementedException();
+            var tipoPermiso = context.TipoPermiso.SingleOrDefault(x => x.Id == id);
+
+            if (tipoPermiso!= null)
+            {
+                context.TipoPermiso.Remove(tipoPermiso);
+                context.SaveChanges();
+            }
+
+            return tipoPermiso;
         }
     }
 }

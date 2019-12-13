@@ -1,0 +1,21 @@
+﻿@using XCompanyApp.Models
+@{
+    ViewBag.Title = "Ver Tipo Permisos";
+}
+
+<table>
+    <thead>
+        <tr>
+            <td>Descripción</td>
+            <td>Acciones</td>
+        </tr>
+    </thead>
+    @foreach (TipoPermiso tipoPermiso in Model)
+    {
+        <tr>
+            <td>@tipoPermiso.Descripcion</td>
+            <td><a href="/Permisos/DeleteTipoPermiso/@tipoPermiso.Id">Eliminar</a></td>
+        </tr>
+    }
+</table>
+
