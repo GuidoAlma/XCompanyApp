@@ -42,12 +42,41 @@ namespace XCompanyApp.Controllers
                 TipoPermisoId = tipoPermiso,
                 FechaPermiso = DateTime.UtcNow
             };
-            
-            var result = permisosRepo.Add(permisos);
 
-            var success = result.Id > 0;
+            bool success;
+
+            if (IsValidModel<Permisos>(permisos))
+            {
+                var result = permisosRepo.Add(permisos);
+                success = result.Id > 0;
+            }
+            else
+            {
+                success = false;
+            }            
 
             return Json(success);
+        }
+
+        private bool IsValidModel<T>(T model)
+        {
+            ModelState.Clear();
+            TryValidateModel(model);
+            return !AreModelErrors();
+        }
+
+        private bool AreModelErrors()
+        {
+            
+            var errorList = ModelState
+                         .Where(x => x.Value.Errors.Count > 0)
+                         .ToDictionary(
+                             kvp => kvp.Key,
+                             kvp => kvp.Value.Errors.Select(e =>
+                             e.ErrorMessage).ToArray()
+                         );
+
+            return errorList.Count() > 0;
         }
 
         public ActionResult TipoPermisos()
