@@ -35,6 +35,8 @@ namespace XCompanyApp.Controllers
         [HttpPost]
         public JsonResult Crear(string nombre, string apellidos, int tipoPermiso)
         {
+            bool success = false;
+
             var permisos = new Permisos()
             {
                 ApellidosEmpleado = apellidos,
@@ -43,17 +45,20 @@ namespace XCompanyApp.Controllers
                 FechaPermiso = DateTime.UtcNow
             };
 
-            bool success;
 
-            if (IsValidModel<Permisos>(permisos))
+            try
             {
-                var result = permisosRepo.Add(permisos);
-                success = result.Id > 0;
+                if (IsValidModel<Permisos>(permisos))
+                {
+                    var result = permisosRepo.Add(permisos);
+                    success = result.Id > 0;
+                }
             }
-            else
+            catch(Exception ex)
             {
                 success = false;
-            }            
+            }
+            
 
             return Json(success);
         }
@@ -87,9 +92,18 @@ namespace XCompanyApp.Controllers
 
         public JsonResult DeleteTipoPermiso(int id)
         {
-            var tipoPermiso = tipoPermisoRepo.Remove(id);
+            bool success;
+            try
+            {
 
-            var success = tipoPermiso != null;
+                var tipoPermiso = tipoPermisoRepo.Remove(id);
+
+                success = tipoPermiso != null;
+            }
+            catch(Exception ex)
+            {
+                success = false;
+            }
 
             return Json(success, JsonRequestBehavior.AllowGet);
         }

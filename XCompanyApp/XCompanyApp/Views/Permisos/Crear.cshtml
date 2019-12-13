@@ -3,7 +3,7 @@
     ViewBag.Title = "Crear Nuevo Permiso";
 }
 
-@using (Html.BeginForm("Crear", "Permisos", FormMethod.Post))
+@using (Html.BeginForm("Crear", "Permisos", FormMethod.Post, new { id = "form" }))
 {
     <div class="form-group">
         <label for="nombre">Nombre:</label>
@@ -25,5 +25,19 @@
             }
         </select>
     </div>
-    <input type="submit" class="btn-primary" />
+    <input type="submit" class="btn-primary" id="formSubmit"/>
 }
+
+<script>
+    function formSubmit(event) {
+        event.preventDefault();
+        var validName = document.getElementById('nombre').value !== '';
+        var validApellidos = document.getElementById('apellidos').value !== '';
+        if (validName && validApellidos) {
+            event.target.submit();
+        }
+    }
+
+    var form = document.getElementById('form');
+    form.addEventListener('submit', formSubmit);
+</script>
